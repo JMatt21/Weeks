@@ -1,0 +1,10 @@
+two sides with 3 options 
+player chooses r p or s 
+then the others side generates a random outcome 
+compare both sides to determine win/loss/tie for player
+if player===r && computer ===r || exact same for p & same for a tie
+all possiblities for a win if statement
+and all possibilities for a loss if statement
+tally the result
+reset the round
+start a new round

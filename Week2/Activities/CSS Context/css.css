@@ -1,0 +1,64 @@
+a {
+    font-size: 20px;
+    padding: 25px;
+    border: gray 5px solid;
+    margin-top: 50px;
+}
+
+p::first-letter {
+    font-size: 60px;
+}
+
+p:lang(spanish){
+    color: brown;
+    motion-rotation: 25deg;
+}
+
+#one:hover{
+    background: firebrick;
+}
+
+#one:active{
+    font-weight: 900;
+}
+
+#one:focus {
+    color: green;
+}
+
+#two:hover{
+    border: green 5px solid;
+    border-radius: 6px;
+}
+
+#two:active{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#two:focus {
+    color: violet;
+}
+
+#three:hover{
+    background: firebrick;
+}
+
+#three:active{
+    font-weight: 900;
+}
+
+#three:focus {
+    color: green;
+}
+
+#four:hover{
+    background: firebrick;
+}
+
+#four:active{
+    font-weight: 900;
+}
+
+#four:focus {
+    color: green;
+}

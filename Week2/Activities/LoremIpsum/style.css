@@ -1,0 +1,24 @@
+h1 {
+    font-size: 87px;
+    font-family: cursive;
+    line-height: 0;
+    font-weight: 100;
+}
+
+h4 {
+    font-size: 5px;
+}
+
+.p1 {
+    font-family: 'UnifrakturCook', cursive;
+    font-size: 24px;
+    word-wrap: break-word;
+}
+
+.p2 {
+    font-size: 24px;
+}
+
+.p3 {
+    line-height: 50px;
+}
