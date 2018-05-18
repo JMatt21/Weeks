@@ -42,7 +42,7 @@
       // Here we create various on "click" functions which capture the clicks
       // Inside each click event is the code to create an alert, update the counter, then show the updated count.
       // ...
-      $(document).ready(function () {
+      
         $("#pbj").on("click", function () {
           pbjSandwichesEaten++;
           alert("A pbj has been eaten! # of pbj sandwiches eaten: " + pbjSandwichesEaten);
@@ -58,7 +58,7 @@
           alert("A roastbeef sandwich has been eaten! # of roast beefsandwiches eaten: " + rbSandwichesEaten);
           $('#image-div').prepend('<img id="#theImg" src="https://www.cscassets.com/recipes/wide_cknew/wide_25336.jpg" width = "100" height = "100"/>');
         })
-      });
+      
     });
 
   </script>
