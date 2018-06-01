@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Calculator</title>
+
+    <!-- Added link to the jQuery Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Added a link to Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+</head>
+<body>
+
+<!-- Jumbotron for Title -->
+<div class="jumbotron">
+    <h1 class="text-center">jQuery Calculator</h1>
+    <h3 class="text-center">Perform basic mathematic operations using the power of jQuery!</h3>
+</div>
+
+<div class="container">
+
+    <div class="row">
+
+      <!-- Calculator Panel -->
+      <div class="col-lg-4">
+        <div class="card">
+          <h3 class="card-header">Calculator</h3>
+
+          <div class="card-body">
+              <div class="row mb-2">
+              <button id="button-1" class="btn btn-primary number col-sm ml-1 mr-1" value="1"><h1>1</h1></button>
+              <button id="button-2" class="btn btn-primary number col-sm ml-1 mr-1" value="2"><h1>2</h1></button>
+              <button id="button-3" class="btn btn-primary number col-sm ml-1 mr-1" value="3"><h1>3</h1></button>
+              <button id="button-plus" class="btn btn-danger operator col-sm ml-1 mr-1" value="+"><h1>+</h1></button>
+              </div>
+              
+              <div class="row mb-2">
+              <button id="button-4" class="btn btn-primary number col-sm ml-1 mr-1" value="4"><h1>4</h1></button>
+              <button id="button-5" class="btn btn-primary number col-sm ml-1 mr-1" value="5"><h1>5</h1></button>
+              <button id="button-6" class="btn btn-primary number col-sm ml-1 mr-1" value="6"><h1>6</h1></button>
+              <button id="button-minus" class="btn btn-danger operator col-sm ml-1 mr-1" value="-"><h1>&minus;</h1></button>
+              </div>
+              <div class="row mb-2">
+              <button id="button-7" class="btn btn-primary number col-sm ml-1 mr-1" value="7"><h1>7</h1></button>
+              <button id="button-8" class="btn btn-primary number col-sm ml-1 mr-1" value="8"><h1>8</h1></button>
+              <button id="button-9" class="btn btn-primary number col-sm ml-1 mr-1" value="9"><h1>9</h1></button>
+              <button id="button-multiply" class="btn btn-danger operator col-sm ml-1 mr-1" value="*"><h1>&times;</h1></button>
+              </div>
+              
+              <div class="row mb-2">
+              <button id="button-0" class="btn btn-primary number col-sm ml-1 mr-1" value="0"><h1>0</h1></button>
+              <button id="button-divide" class="btn btn-danger operator col-sm ml-1 mr-1" value="÷  "><h1>&divide;</h1></button>
+              <button id="button-power" class="btn btn-danger operator col-sm ml-1 mr-1" value="^"><h1>^</h1></button>
+              <button id="button-equal" class="btn btn-success equal col-sm ml-1 mr-1" value="equals"><h1>=</h1></button>
+              </div>
+              <div class="row">
+              <button id="button-clear" class="btn btn-dark clear ml-1" value="clear"><h1>C</h1></button>
+              <button id="button-clear-all" class="btn btn-dark clear ml-1" value="clear"><h1>Clear All</h1></button>
+              </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- Result Panel -->
+      <div class="col-lg-6">
+        <div class="card">
+          <h3 class="card-header">Result</h3>
+          <div class="card-body" id="resultBody">
+            <!-- <h1 id="first-number"></h1>
+            <h1 id="operator"></h1>
+            <h1 id="second-number"></h1> -->
+            <h1><span id="first-number"></span> <span id="operator"></span> <span id="second-number"></span> <span id="result"></span></h1>
+            <hr>
+            <h1 id="result"></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+// Your code here...
+
+  $(".number").on("click", function(){
+    if($("#operator").text() === ""){
+      $("#first-number").append(this.value);
+    }
+    else{
+      $("#second-number").append(this.value);
+    }
+  });
+
+  $(".operator").on("click", function(){
+    if(!($("#first-number").text() === "")){
+      $("#operator").text(this.value);
+    }
+  });
+  $("#button-equal").on("click", function(){
+    var firstNum  = (parseInt($("#first-number").text()));
+    var operator  = (($("#operator").text()));
+    // console.log(operator);
+    var secondNum = (parseInt($("#second-number").text()));
+    
+    switch(operator){
+      case "+": $("#result").text('= ' + (firstNum + secondNum));
+        break;
+      case "-": $("#result").text('= ' + (firstNum - secondNum)); 
+        break;
+      case "*": $("#result").text('= ' + (firstNum * secondNum));
+        break;
+      case "÷": $("#result").text('= ' + (firstNum / secondNum));
+        break;
+      case "^": $("#result").text('= ' + (Math.pow(firstNum, secondNum)));
+        break;
+    }
+    //make a new line
+    var newDiv = $("<div>");
+    newDiv.html("<br> <h1>hello</h1>");
+    $("#resultBody").append(newDiv);
+
+
+  });
+  $("#button-clear").on("click", function(){
+    if ($("#operator").text() === ""){
+      $("#first-number").empty();  
+    }
+    else if($("#second-number").text() === ""){
+      $("#operator").empty();  
+    }
+    else {
+      $("#second-number").empty();
+      $("#result").empty();
+    }
+  });
+
+  $("#button-clear-all").on("click", function(){
+    $("#first-number").empty();
+    $("#operator").empty();
+    $("#second-number").empty();
+    $("#result").empty();
+  });
+
+
+});
+
+</script>
+
+</body>
+</html>
