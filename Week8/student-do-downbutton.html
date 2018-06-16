@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>CountDown Button with Firebase!</title>
+  
+  <!-- Firebase Reference -->
+  <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+
+</head>
+
+<body>
+
+  <h1>Only
+    <span id="click-value"></span> clicks to go!!</h1>
+
+  <button id="click-button">Click Me!!!!</button>
+  <button id="restart-button">Restart</button>
+
+  <!-- jQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- Script -->
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBOiHjYKn_QoqL5RLl219teUF9-DaB49gc",
+    authDomain: "hethere-51bee.firebaseapp.com",
+    databaseURL: "https://hethere-51bee.firebaseio.com",
+    projectId: "hethere-51bee",
+    storageBucket: "hethere-51bee.appspot.com",
+    messagingSenderId: "427607132711"
+  };
+  firebase.initializeApp(config);
+
+var database = firebase.database();
+var countdown;
+$("#click-button").on("click", function(){
+  database.ref().set({
+    count: countdown--
+  });
+});
+
+$("#restart-button").on("click", function(){
+  database.ref().set({
+    count: 10
+  });
+});
+
+database.ref().on("value", function (snapshot) {
+      console.log(snapshot.val());
+      $("#click-value").text(snapshot.val().count);
+      countdown = snapshot.val().count;
+    }, function (errorObject) {
+      console.log("The read failed: " + errorObject.code);
+    });
+
+</script>
+  
+  
+  
+
+</body>
+
+</html>

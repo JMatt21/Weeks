@@ -1,0 +1,15 @@
+.jumbotron {
+    background-color: #20315a;
+    color:white;
+    font-size: 65px;
+}
+
+.btn {
+    margin: 10px;
+    background-color: lightgray;
+}
+
+.card-title {
+    background-color: #20315a;
+    color:white;
+}
