@@ -1,0 +1,16 @@
+{
+  "name": "R_P_G",
+  "version": "1.0.0",
+  "description": "",
+  "main": "rpg.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "inquire": "^0.4.8",
+    "inquirer": "^6.0.0"
+  }
+}
