@@ -1,0 +1,19 @@
+• App can look up tv/shows and actors.
+• Returns the name of actor/show
+• Genere of the show
+• Rating of show
+• Network of the show
+• Summary of show
+
+• Name of actor
+• gender
+• birthday
+• country origination
+
+• log everything on to a text file
+
+2 modules.
+We aren't really using the data except to log it.
+I'm not sure how the api works *yet*, but I would leave all the api stuff on its own module.
+
+

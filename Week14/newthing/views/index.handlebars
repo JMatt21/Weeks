@@ -1,0 +1,46 @@
+<h1> Movies to watch!</h1>
+{{#each movies}} {{id}} {{movie}} {{/each}}
+
+<form action="/movies" method="POST">
+    <textarea type="text" name="movie"></textarea>
+
+    <button type="submit">Submit</button>
+</form>
+
+<h2>Update a Movie</h2>
+<form id="updateplan" class="button-size">
+    <select name="id">
+        {{#each movies}}
+        <option value="{{this.id}}">{{this.movie}}</option>
+        {{/each}}
+    </select>
+    <textarea type="text" name="movie" placeholder="movie"></textarea>
+    <button type="submit">Update Movie!</button>
+</form>
+
+
+{{!-- JQUERY --}}
+<script>
+    $("#updateplan").on("submit", function (event) {
+        // Make sure to preventDefault on a submit event.
+        event.preventDefault();
+
+        var id = $("[name=id]").val().trim();
+
+        var updatedPlan = {
+            plan: $("#updateplan [name=plan]").val().trim()
+        };
+
+        // Send the PUT request.
+        $.ajax("/todos/" + id, {
+            type: "PUT",
+            data: updatedPlan
+        }).then(
+            function () {
+                console.log("updated id ", id);
+                // Reload the page to get the updated list
+                location.reload();
+            }
+        );
+    });
+</script>
